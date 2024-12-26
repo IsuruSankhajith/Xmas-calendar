@@ -11,13 +11,18 @@
     </style>
 </head>
 <body>
+    <script src="draw.js"></script>
     <script src="item/star.js"></script>
+    <script src="item/ball.js"></script>
+    <script src="item/sock.js"></script>
     <script>
         const cellSize = 200;
 
         // Define draw item functions array
         const drawItemFunctions = [];
         drawItemFunctions[1] = drawStar; // Ensure drawStar is defined in star.js
+        drawItemFunctions[2] = drawBall;
+        drawItemFunctions[3] = drawSock;
 
         for (let i = 0; i < 31; i++) {
             // Create a container for each cell
