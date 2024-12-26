@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>December 2024</title>
+    <style>
+        canvas {
+            background-color: #BBB;
+            margin: 3px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script src="item/star.js"></script>
+    <script>
+        const cellSize = 200;
+
+        // Define draw item functions array
+        const drawItemFunctions = [];
+        drawItemFunctions[1] = drawStar; // Ensure drawStar is defined in star.js
+
+        for (let i = 0; i < 31; i++) {
+            // Create a container for each cell
+            const container = document.createElement('div');
+            container.style.width = cellSize + 'px';
+            container.style.height = cellSize + 'px';
+            container.style.display = 'inline-block';
+            container.style.textAlign = 'center';
+            container.style.verticalAlign = 'middle';
+
+            // Create a canvas element for the day
+            const canvas = document.createElement('canvas');
+            canvas.width = cellSize;
+            canvas.height = cellSize;
+
+            // Append the canvas to the container
+            container.appendChild(canvas);
+            document.body.appendChild(container);
+
+            // Fill the canvas with the day number or a special item
+            fillcell(i + 1, canvas);
+        }
+
+        function fillcell(day, canvas) {
+            const ctx = canvas.getContext('2d');
+            const x = canvas.width / 2;
+            const y = canvas.height / 2;
+            const itemSize = canvas.width / 4;
+
+            // Choose a function to draw an item or a number
+            const drawItem = drawItemFunctions[day];
+            if (drawItem) {
+                drawItem(ctx, x, y, itemSize);
+            } else {
+                drawNumber(ctx, day, x, y, itemSize);
+            }
+        }
+
+        function drawNumber(ctx, value, x, y, itemSize) {
+            ctx.font = `${itemSize}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(value, x, y);
+        }
+    </script>
+</body>
+</html>
