@@ -1,6 +1,6 @@
 # Xmas-calendar
 
-# December 2024 Interactive Calendar
+
 
 An interactive web-based calendar for December 2024, featuring dynamic visuals such as stars, balls, and socks drawn on specific days. The calendar is implemented using HTML5, CSS, and JavaScript.
 
@@ -54,9 +54,9 @@ An interactive web-based calendar for December 2024, featuring dynamic visuals s
 
 This project is open-source under the [MIT License](LICENSE).
 
----
+
 
 Happy coding! 🎄
-```
+
 
  
